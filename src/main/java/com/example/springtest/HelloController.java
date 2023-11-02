@@ -10,5 +10,12 @@ public class HelloController {
 	public String index() {
 		return "Greetings from Spring Boot!";
 	}
+	
+	private void testSpotbugs() {
+		Integer i = 0;
+		while(i != null) {
+			i += 0;
+		}
+	}
 
 }
