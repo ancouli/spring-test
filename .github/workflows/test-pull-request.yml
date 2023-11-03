@@ -31,4 +31,5 @@ jobs:
             src
             target
             pom.xml
+            .git
           retention-days: 1
