@@ -28,5 +28,6 @@ jobs:
         with:
           name: artifact
           path: |
+            src
             target
             pom.xml
