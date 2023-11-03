@@ -1,8 +1,7 @@
-name: SonarCloud
+name: Pull Request
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   build:
     name: Build and analyze
@@ -33,3 +32,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify spotbugs:spotbugs org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ancouli_spring-test -Dsonar.java.spotbugs.reportPaths=target/spotbugsXml.xml
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: target
