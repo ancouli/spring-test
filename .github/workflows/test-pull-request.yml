@@ -31,3 +31,4 @@ jobs:
             src
             target
             pom.xml
+          retention-days: 1
