@@ -36,8 +36,7 @@ jobs:
           name: artifact
           path: |
             src
-            target/site
-            target/surefire-reports
+            target
             pom.xml
             .git
           retention-days: 1
