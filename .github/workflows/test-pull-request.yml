@@ -2,16 +2,8 @@ name: Pull Request From Fork
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-jobs:
-  check:
-    name: Check for fork
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Check for fork
-        if: ${{ !github.event.pull_request.head.repo.fork }}
-        run: exit 1
-    
+
+jobs:  
   build:
     name: Build and test
     runs-on: ubuntu-latest
