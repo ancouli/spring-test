@@ -1,0 +1,32 @@
+name: PR Test and Analysis
+on:
+  workflow_run:
+    workflows: [Pull Request Start]
+    types:
+      - completed
+
+jobs:
+  analyse:
+    name: test and analyse
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+        
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+      
+      - name: Build and analyse
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: >
+          mvn -B verify spotbugs:spotbugs org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
+          -Dsonar.projectKey=ancouli_spring-test 
+          -Dsonar.java.spotbugs.reportPaths=target/spotbugsXml.xml
