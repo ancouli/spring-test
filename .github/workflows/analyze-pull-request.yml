@@ -1,7 +1,7 @@
-name: PR SonarCloud Analysis
+name: Fork SonarCloud Analysis
 on:
   workflow_run:
-    workflows: [Pull Request]
+    workflows: [Pull Request From Fork]
     types:
       - completed
 
