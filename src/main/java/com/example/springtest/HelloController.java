@@ -18,22 +18,8 @@ public class HelloController {
 		}
 	}
 	
-	private void testSpotbugsAgain() {
-		Integer i = 0;
-		while(i != null) {
-			i += 0;
-		}
-	}
-	
 	private void testSpotbugsAThirdTime() {
-		Integer i = 0;
-		while(i != null) {
-			i += 0;
-		}
-	}
-	
-	private void testSpotbugsAFourthTime() {
-		Integer i = 0;
+		Integer i = 1;
 		while(i != null) {
 			i += 0;
 		}
