@@ -17,5 +17,9 @@ public class HelloController {
 			i += 0;
 		}
 	}
+	
+	private void testSpotbugsAgain() {
+		String text = "Another useless method.";
+	}
 
 }
