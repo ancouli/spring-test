@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <FindBugsFilter
-              xmlns="https://github.com/spotbugs/filter/3.0.0"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
-  
-  <!-- Exclude specific bug-rules for all files -->
-  <Match>
-  <Or>
-    <Bug pattern="JUA_DONT_ASSERT_INSTANCEOF_IN_TESTS" />
-    <Bug pattern="SE_NO_SERIALVERSIONID" />
-    <Bug pattern="UC_USELESS_VOID_METHOD" />
-  </Or>
-  </Match>
-  
-  <!-- Exclude a specific bug-rule for a specific method in a specific class. Can be used for false-positives. 
-  <Match>
-    <Class name="com.example.springtest.HelloController.java" />
-    <Method name="testSpotbugsAThirdTime" />
-    <Bug pattern="UC_USELESS_VOID_METHOD" />
-  </Match>-->
+<FindBugsFilter
+	xmlns="https://github.com/spotbugs/filter/3.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
+
+	<!-- Exclude specific bug-rules for all files -->
+	<Match>
+		<Or>
+			<Bug pattern="JUA_DONT_ASSERT_INSTANCEOF_IN_TESTS" />
+			<Bug pattern="SE_NO_SERIALVERSIONID" />
+		</Or>
+	</Match>
+
+	<!-- Exclude a specific bug-rule for a specific method in a specific class. Can be used for false-positives. -->
+	<Match>
+		<Class name="com.example.springtest.HelloController" />
+		<Method name="testSpotbugsAThirdTime" />
+		<Bug pattern="UC_USELESS_VOID_METHOD" />
+	</Match>
+</FindBugsFilter>
