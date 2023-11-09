@@ -83,6 +83,7 @@
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>${spotbugs.version}</version>
 				<configuration>
+					<excludeFilterFile>spotbugsExcludeFilter.xml</excludeFilterFile>
 					<plugins>
 						<plugin>
 							<groupId>com.mebigfatguy.sb-contrib</groupId>
