@@ -31,5 +31,12 @@ public class HelloController {
 			i += 0;
 		}
 	}
+	
+	private void testSpotbugsAFourthTime() {
+		Integer i = 0;
+		while(i != null) {
+			i += 0;
+		}
+	}
 
 }

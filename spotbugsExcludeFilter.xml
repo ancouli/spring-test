@@ -9,12 +9,13 @@
   <Or>
     <Bug pattern="JUA_DONT_ASSERT_INSTANCEOF_IN_TESTS" />
     <Bug pattern="SE_NO_SERIALVERSIONID" />
+    <Bug pattern="UC_USELESS_VOID_METHOD" />
   </Or>
   </Match>
   
-  <!-- Exclude a specific bug-rule for a specific method in a specific class. Can be used for false-positives. -->
+  <!-- Exclude a specific bug-rule for a specific method in a specific class. Can be used for false-positives. 
   <Match>
     <Class name="com.example.springtest.HelloController.java" />
     <Method name="testSpotbugsAThirdTime" />
     <Bug pattern="UC_USELESS_VOID_METHOD" />
-  </Match>
+  </Match>-->
