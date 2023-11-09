@@ -19,11 +19,17 @@ public class HelloController {
 	}
 	
 	private void testSpotbugsAgain() {
-		String text = "Another useless method.";
+		Integer i = 0;
+		while(i != null) {
+			i += 0;
+		}
 	}
 	
 	private void testSpotbugsAThirdTime() {
-		String text = "I should be excluded from the report.";
+		Integer i = 0;
+		while(i != null) {
+			i += 0;
+		}
 	}
 
 }
