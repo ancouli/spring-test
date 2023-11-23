@@ -84,6 +84,7 @@
 				<version>${spotbugs.version}</version>
 				<configuration>
 					<excludeFilterFile>${project.basedir}/spotbugsExcludeFilter.xml</excludeFilterFile>
+					<includeTests>true</includeTests>
 					<plugins>
 						<plugin>
 							<groupId>com.mebigfatguy.sb-contrib</groupId>
