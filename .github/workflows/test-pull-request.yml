@@ -29,6 +29,9 @@ jobs:
       
       - name: Build and test
         run: mvn -B verify spotbugs:spotbugs
+        
+      - name: Save PR details
+        run: echo "${{ github.event.number }},${{ github.head_ref || 'master'}},${{ github.base_ref }}" > pr_data.csv
       
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -39,4 +42,5 @@ jobs:
             target
             pom.xml
             .git
+            pr_data.csv
           retention-days: 1

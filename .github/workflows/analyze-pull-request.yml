@@ -41,6 +41,12 @@ jobs:
         with:
           java-version: 17
           distribution: temurin
+          
+      - name: Get PR details
+        run: >
+          echo "PR=$(cut -d ',' -f 1 pr_data.csv)" >> $GITHUB_ENV
+          echo "BRANCH=$(cut -d ',' -f 2 pr_data.csv)" >> $GITHUB_ENV
+          echo "BASE=$(cut -d ',' -f 3 pr_data.csv)" >> $GITHUB_ENV
       
       - name: SonarCloud analysis
         env:
@@ -52,6 +58,6 @@ jobs:
           -Dsonar.projectKey=ancouli_spring-test 
           -Dsonar.java.spotbugs.reportPaths=target/spotbugsXml.xml
           -Dsonar.scm.revision=${{ github.event.workflow_run.head_sha }}
-          -Dsonar.pullrequest.key=${{ github.event.workflow_run.pull_requests[0].number }}
-          -Dsonar.pullrequest.branch=${{ github.event.workflow_run.pull_requests[0].head.ref }}
-          -Dsonar.pullrequest.base=${{ github.event.workflow_run.pull_requests[0].base.ref }}
+          -Dsonar.pullrequest.key=$PR
+          -Dsonar.pullrequest.branch=$BRANCH
+          -Dsonar.pullrequest.base=$BASE
