@@ -60,4 +60,4 @@ jobs:
           -Dsonar.scm.revision=${{ github.event.workflow_run.head_sha }}
           -Dsonar.pullrequest.key=${PR}
           -Dsonar.pullrequest.branch=${BRANCH}
-          -Dsonar.pullrequest.base="${BASE}
+          -Dsonar.pullrequest.base=${BASE}
