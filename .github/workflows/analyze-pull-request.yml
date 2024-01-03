@@ -47,6 +47,18 @@ jobs:
           echo "PR=$(cut -d ',' -f 1 pr_data.csv)" >> $GITHUB_ENV
           echo "BRANCH=$(cut -d ',' -f 2 pr_data.csv)" >> $GITHUB_ENV
           echo "BASE=$(cut -d ',' -f 3 pr_data.csv)" >> $GITHUB_ENV
+          
+      - name: Get manual approval
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: ancouli
+          minimum-approvals: 1
+          issue-title: "Pull Request #${PR} from fork awaits approval"
+          issue-body: "Please approve or deny the code analysis of this pull request. SECURITY WARNING: The analysis may expose environment secrets."
+          exclude-workflow-initiator-as-approver: false
+          additional-approved-words: ''
+          additional-denied-words: ''
       
       - name: SonarCloud analysis
         env:
