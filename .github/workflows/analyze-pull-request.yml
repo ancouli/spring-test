@@ -10,6 +10,7 @@ jobs:
     name: Download and analyse
     runs-on: ubuntu-latest
     if: github.event.workflow_run.conclusion == 'success'
+    environment: SONAR
     
     steps:
       - name: 'Download artifact'
@@ -48,17 +49,17 @@ jobs:
           echo "BRANCH=$(cut -d ',' -f 2 pr_data.csv)" >> $GITHUB_ENV
           echo "BASE=$(cut -d ',' -f 3 pr_data.csv)" >> $GITHUB_ENV
           
-      - name: Get manual approval
-        uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ secrets.GITHUB_TOKEN }}
-          approvers: ancouli
-          minimum-approvals: 1
-          issue-title: "Pull Request #${PR} from fork awaits approval"
-          issue-body: "Please approve or deny the code analysis of this pull request. SECURITY WARNING: The analysis may expose environment secrets."
-          exclude-workflow-initiator-as-approver: false
-          additional-approved-words: ''
-          additional-denied-words: ''
+#      - name: Get manual approval
+#        uses: trstringer/manual-approval@v1
+#        with:
+#          secret: ${{ secrets.GITHUB_TOKEN }}
+#          approvers: ancouli
+#          minimum-approvals: 1
+#          issue-title: "Pull Request #${PR} from fork awaits approval"
+#          issue-body: "Please approve or deny the code analysis of this pull request. SECURITY WARNING: The analysis may expose environment secrets."
+#          exclude-workflow-initiator-as-approver: false
+#          additional-approved-words: ''
+#          additional-denied-words: ''
       
       - name: SonarCloud analysis
         env:
