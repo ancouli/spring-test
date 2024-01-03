@@ -51,7 +51,7 @@ jobs:
       - name: Get manual approval
         uses: trstringer/manual-approval@v1
         with:
-          secret: ${{ github.TOKEN }}
+          secret: ${{ secrets.GITHUB_TOKEN }}
           approvers: ancouli
           minimum-approvals: 1
           issue-title: "Pull Request #${PR} from fork awaits approval"
