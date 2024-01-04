@@ -56,9 +56,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: artifact
-
-#      - name: 'Unzip artifact'
-#        run: unzip artifact.zip
         
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -67,13 +64,13 @@ jobs:
           distribution: temurin
           
       - name: Get PR details
-        run: >
+        run: |
           echo "PR=$(cut -d ',' -f 1 pr_data.csv)" >> $GITHUB_ENV
           echo "BRANCH=$(cut -d ',' -f 2 pr_data.csv)" >> $GITHUB_ENV
           echo "BASE=$(cut -d ',' -f 3 pr_data.csv)" >> $GITHUB_ENV
           
       - name: Dubug Info
-        run: >
+        run: |
           echo "PR number is ${PR}"
           echo "Branch name is ${BRANCH}"
           echo "Base name is ${BASE}"
