@@ -1,7 +1,7 @@
 name: Fork SonarCloud Analysis
 on:
   workflow_run:
-    workflows: [Pull Request From Fork]
+    workflows: [Pull Request Analysis]
     types:
       - completed
 
@@ -9,8 +9,7 @@ jobs:
   analyse:
     name: Download and analyse
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
-    environment: SONAR
+    if: github.event.workflow_run.conclusion == 'fork_success'
     
     steps:
       - name: 'Download artifact'
