@@ -84,5 +84,5 @@ jobs:
             pr_data.csv
           retention-days: 1
           
-      - name: Set output parameter
-        run: echo "fork_output=fork_success" >> $GITHUB_OUTPUT
+      - name: Set status
+        run: echo "::set-output name=workflow_status::fork_success"

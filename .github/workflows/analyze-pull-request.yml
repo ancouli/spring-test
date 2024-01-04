@@ -9,7 +9,7 @@ jobs:
   analyse:
     name: Download and analyse
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.outputs.fork_output == 'fork_success'
+    if: github.event.workflow_run.conclusion == 'fork_success'
     
     steps:
       - name: 'Download artifact'
